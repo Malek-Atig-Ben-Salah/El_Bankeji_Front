@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  email: 'leticiamichelin@outlook.com',
-  githubUrl: 'https://github.com/leticiabma'
+  email: '*',
+  githubUrl: 'https://github.com/Malek-Atig-Ben-Salah/El_Bankeji_Front'
 };
 
 /*

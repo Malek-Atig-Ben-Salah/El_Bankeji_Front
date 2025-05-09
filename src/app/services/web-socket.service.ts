@@ -8,7 +8,7 @@ export class WebSocketService {
 
   private socket!: WebSocket;
   private messageSubject = new Subject<any>();
-  private httpUrl = 'http://localhost:3000';
+  private httpUrl = 'ws://localhost:8001/chat?user=John Doe';
 
   constructor() {
     this.connect();
