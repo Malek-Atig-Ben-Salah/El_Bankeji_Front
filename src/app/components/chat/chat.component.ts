@@ -101,6 +101,12 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   }
 
   openLargeChat() {
-    this.router.navigate([DisplayType.Fixed]);
+    console.log(this.router.url)
+    if(this.router.url === '/fixed-chat'){
+      // @ts-ignore
+      this.router.navigate(['/collapsible-chat']);
+    } else {
+      this.router.navigate(['/fixed-chat']);
+    }
   }
 }
