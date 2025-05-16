@@ -2,7 +2,7 @@
 
 .app-header {
     height: 15%;
-    background-color: $black;
+    background-color: #000080;
     justify-content: space-between;
     padding: 0 16px;
 
@@ -12,6 +12,15 @@
         text-align: center;
         color: $white;
         font-size: 2vh;
+    }
+
+    .user-header-title{
+      margin-top: 45px;
+      width: 10%;
+      height: 100%;
+      text-align: center;
+      color: $white;
+      font-size: 2vh;
     }
 
     .header-actions {
@@ -33,10 +42,10 @@
                 min-width: 15%;
                 text-align: center;
 
-                input { 
+                input {
                     display: none;
                 }
-                
+
                 label {
                     font-size: 1.8vh;
                     padding: 0.5em 0.5em;
@@ -46,11 +55,11 @@
                     border-radius: 2px;
                     color: $black;
                 }
-                
+
                 label:hover {
                     opacity: 0.8;
                 }
-                
+
                 input:checked + label{
                     background: $blue;
                 }
@@ -83,20 +92,20 @@
             animation:copy-alert 2s 1;
             -webkit-animation:copy-alert 2s 1;
             animation-fill-mode: forwards;
-        
+
             animation-delay:2s;
             -webkit-animation-delay:1s; /* Safari and Chrome */
             -webkit-animation-fill-mode: forwards;
         }
-        
+
         @keyframes copy-alert{
             from {opacity :1;}
             to {opacity :0;}
         }
-        
+
         @-webkit-keyframes copy-alert{
             from {opacity :1;}
             to {opacity :0;}
         }
-    }    
+    }
 }

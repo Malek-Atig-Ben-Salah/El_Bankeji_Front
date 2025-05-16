@@ -1,6 +1,8 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {ChatService} from "../../services/chat.service";
+import {DisplayType} from "../../shared/enums/display-type.enum";
+import {Router} from "@angular/router";
 
 class Message {
   text?: string;
@@ -21,12 +23,13 @@ enum MessageType {
 export class ChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('messageContainer') private messageContainer: ElementRef;
   @Input() public display: string;
-
+  public displayType: DisplayType;
   public form: FormGroup;
   public messages: Array<Message> = [];
   private canSendMessage = true;
 
   constructor(private formBuilder: FormBuilder,
+              private router: Router,
               private chatService: ChatService){}
 
   ngOnInit(): void {
@@ -40,12 +43,12 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.chatService.getMessages().subscribe(
       (message: any) => {
         console.log('message1  : ', message);
-        if (message?.type === MessageType.User) {
+//        if (message?.type === MessageType.User) {
           this.messages.push({
-            text: message?.text,
-            type: message?.type
+            text: message,
+            type: MessageType.Bot
           });
-        }
+ //       }
       },
       (error) => console.error('Error receiving message:', error)
     );
@@ -61,7 +64,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     if (message && this.canSendMessage) {
       const userMessage: Message = {text: message, type: MessageType.User};
       this.messages.push(userMessage);
-
+      this.chatService.sendMessage(userMessage.text , userMessage.type);
       this.form.get('message').setValue('');
       this.form.updateValueAndValidity();
       this.getBotMessage();
@@ -80,7 +83,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         this.messages.push(botMessage);
       }
       this.canSendMessage = true;
-    }, 1500);
+    }, 2000);
   }
 
   public onClickEnter(event: KeyboardEvent): void {
@@ -95,5 +98,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   // tslint:disable-next-line:typedef
   botMessageExist() {
     return this.messages.find(message => message.type === MessageType.Bot);
+  }
+
+  openLargeChat() {
+    this.router.navigate([DisplayType.Fixed]);
   }
 }

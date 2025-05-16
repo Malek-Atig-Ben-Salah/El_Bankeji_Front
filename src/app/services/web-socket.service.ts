@@ -11,6 +11,7 @@ export class WebSocketService {
   private httpUrl = 'ws://localhost:8001/chat?user=John Doe';
 
   constructor() {
+    console.log("conntext");
     this.connect();
   }
 
@@ -22,7 +23,8 @@ export class WebSocketService {
     };
 
     this.socket.onmessage = (event) => {
-      this.messageSubject.next(JSON.parse(event.data));
+      console.log(event);
+      this.messageSubject.next(event.data);
     };
 
     this.socket.onerror = (error) => {
@@ -40,7 +42,8 @@ export class WebSocketService {
 
   public sendMessage(message: any): void {
     if (this.socket.readyState === WebSocket.OPEN) {
-      this.socket.send(JSON.stringify(message));
+      console.log("message : " , message);
+      this.socket.send(JSON.stringify(message.content));
     } else {
       console.error('WebSocket is not open. Ready state:', this.socket.readyState);
     }

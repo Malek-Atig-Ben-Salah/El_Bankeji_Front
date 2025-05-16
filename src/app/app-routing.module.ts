@@ -7,7 +7,7 @@ import { DisplayType } from './shared/enums/display-type.enum';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: DisplayType.Fixed,
+    redirectTo: DisplayType.Collapsible,
     pathMatch: 'full',
   },
   {

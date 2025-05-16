@@ -44,7 +44,7 @@
         font-weight: 500;
         margin-bottom: 0px !important;
     }
-    
+
     .chat-subtitle {
         color: $white;
         margin-bottom: 0px;
@@ -65,7 +65,7 @@
 .chat-content {
     flex-grow: 1;
     overflow: auto;
-    margin: 5%; 
+    margin: 5%;
 
     .messages {
         display: flex;
@@ -86,7 +86,7 @@
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 12px;
-    word-break: break-word;    
+    word-break: break-word;
     word-wrap: break-word;
     hyphens: auto;
 
@@ -130,7 +130,7 @@
                 width: 18px;
             }
         }
-          
+
         @-webkit-keyframes loading-message {
             to {
                 width: 18px;
@@ -163,7 +163,7 @@
 
     .send-button {
         color: $blue;
-    
+
         .send-icon {
             font-size: 20px;
         }
@@ -178,4 +178,8 @@
     [class*="collapsible-chat"] {
         width: 80%;
       }
+}
+
+.margin-button-other-view{
+  padding-left: 45%;
 }

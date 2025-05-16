@@ -1,12 +1,12 @@
 <div class="full-width full-height">
   <div class="app-header display-flex -row -center">
     <span class="header-title display-flex -center">
-      ElBankeji
+      <img src="../assets/images/elb.png" width="1000" height="70">
     </span>
-    <div class="header-actions display-flex -center">
+<!--    <div class="header-actions display-flex -center">
         <div class="chat-buttons">
           <div class="button-container">
-            <input id="fixed-chat" type="radio" name="display-button" value="{{displayType.Fixed}}" routerLink="{{displayType.Fixed}}" [checked]="display === displayType.Fixed"/>
+              <input id="fixed-chat" type="radio" name="display-button" value="{{displayType.Fixed}}" routerLink="{{displayType.Fixed}}" [checked]="display === displayType.Fixed"/>
             <label for="fixed-chat">Fixed</label>
           </div>
           <div class="button-container">
@@ -14,9 +14,10 @@
             <label for="collapsible-chat">Collapsible</label>
           </div>
         </div>
-    </div>
-    <div class="app-socials display-flex full-height">
-      <div class="socials-icons display-flex -column -center full-height">
+    </div>-->
+    <div class="app-socials display-flex full-height user-header-title">
+      <h2>John DOE</h2>
+<!--      <div class="socials-icons display-flex -column -center full-height">
         <div class="display-flex -center">
           <img class="icon" src="./assets/github-logo.png" (click)="onClickRedirectGithub()">
         </div>
@@ -24,7 +25,7 @@
           <img class="icon" src="./assets/mail.png" [cdkCopyToClipboard]="email" (click)="onClickCopyEmail()">
           <span class="copy-alert" *ngIf="copyEmail">Copied email!</span>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
   <router-outlet></router-outlet>
